@@ -7,4 +7,7 @@ COPY . .
 ENV RAILS_ENV="development"
 
 RUN bundle install
+RUN bundle exec tapioca gems
+RUN bundle exec tapioca annotations
+RUN bundle exec tapioca dsl
 
