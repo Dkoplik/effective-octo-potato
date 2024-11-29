@@ -3,5 +3,8 @@ FROM ruby:3.3.6
 WORKDIR /usr/src/app
 
 COPY . .
+
+ENV RAILS_ENV="development"
+
 RUN bundle install
 
