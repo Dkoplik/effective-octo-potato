@@ -11,11 +11,13 @@ module Importmap; end
 # source://importmap-rails//lib/importmap/engine.rb#7
 class Importmap::Engine < ::Rails::Engine
   class << self
-    # source://activesupport/8.0.0/lib/active_support/class_attribute.rb#12
-    def __callbacks; end
+    private
 
-    # source://activesupport/8.0.0/lib/active_support/class_attribute.rb#15
-    def __callbacks=(new_value); end
+    # source://activesupport/8.0.1/lib/active_support/class_attribute.rb#15
+    def __class_attr___callbacks; end
+
+    # source://activesupport/8.0.1/lib/active_support/class_attribute.rb#17
+    def __class_attr___callbacks=(new_value); end
   end
 end
 

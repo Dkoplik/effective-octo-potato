@@ -34,19 +34,19 @@ module SolidCache
     # source://solid_cache//lib/solid_cache.rb#12
     def executor=(val); end
 
-    # source://railties/8.0.0/lib/rails/engine.rb#413
+    # source://railties/8.0.1/lib/rails/engine.rb#413
     def railtie_helpers_paths; end
 
-    # source://railties/8.0.0/lib/rails/engine.rb#396
+    # source://railties/8.0.1/lib/rails/engine.rb#396
     def railtie_namespace; end
 
-    # source://railties/8.0.0/lib/rails/engine.rb#417
+    # source://railties/8.0.1/lib/rails/engine.rb#417
     def railtie_routes_url_helpers(include_path_helpers = T.unsafe(nil)); end
 
-    # source://railties/8.0.0/lib/rails/engine.rb#402
+    # source://railties/8.0.1/lib/rails/engine.rb#402
     def table_name_prefix; end
 
-    # source://railties/8.0.0/lib/rails/engine.rb#409
+    # source://railties/8.0.1/lib/rails/engine.rb#409
     def use_relative_model_naming?; end
   end
 end
@@ -216,11 +216,13 @@ end
 # source://solid_cache//lib/solid_cache/engine.rb#7
 class SolidCache::Engine < ::Rails::Engine
   class << self
-    # source://activesupport/8.0.0/lib/active_support/class_attribute.rb#12
-    def __callbacks; end
+    private
 
-    # source://activesupport/8.0.0/lib/active_support/class_attribute.rb#15
-    def __callbacks=(new_value); end
+    # source://activesupport/8.0.1/lib/active_support/class_attribute.rb#15
+    def __class_attr___callbacks; end
+
+    # source://activesupport/8.0.1/lib/active_support/class_attribute.rb#17
+    def __class_attr___callbacks=(new_value); end
   end
 end
 
@@ -234,41 +236,40 @@ class SolidCache::Entry < ::SolidCache::Record
   extend ::SolidCache::Entry::Expiration::ClassMethods
 
   class << self
-    # source://activesupport/8.0.0/lib/active_support/class_attribute.rb#12
-    def _validators; end
-
-    # source://activesupport/8.0.0/lib/active_support/class_attribute.rb#15
-    def _validators=(new_value); end
-
     def clear_delete; end
     def clear_truncate; end
-
-    # source://activesupport/8.0.0/lib/active_support/class_attribute.rb#12
-    def defined_enums; end
-
-    # source://activesupport/8.0.0/lib/active_support/class_attribute.rb#15
-    def defined_enums=(new_value); end
-
     def delete_by_key(*keys); end
     def id_range; end
 
-    # source://activerecord/8.0.0/lib/active_record/scoping/named.rb#174
+    # source://activerecord/8.0.1/lib/active_record/scoping/named.rb#174
     def in_key_hash_range(*args, **_arg1); end
 
-    # source://activerecord/8.0.0/lib/active_record/scoping/named.rb#174
+    # source://activerecord/8.0.1/lib/active_record/scoping/named.rb#174
     def largest_byte_sizes(*args, **_arg1); end
 
     def lock_and_write(key, &block); end
     def read(key); end
     def read_multi(keys); end
 
-    # source://activerecord/8.0.0/lib/active_record/scoping/named.rb#174
+    # source://activerecord/8.0.1/lib/active_record/scoping/named.rb#174
     def up_to_byte_size(*args, **_arg1); end
 
     def write(key, value); end
     def write_multi(payloads); end
 
     private
+
+    # source://activesupport/8.0.1/lib/active_support/class_attribute.rb#15
+    def __class_attr__validators; end
+
+    # source://activesupport/8.0.1/lib/active_support/class_attribute.rb#17
+    def __class_attr__validators=(new_value); end
+
+    # source://activesupport/8.0.1/lib/active_support/class_attribute.rb#15
+    def __class_attr_defined_enums; end
+
+    # source://activesupport/8.0.1/lib/active_support/class_attribute.rb#17
+    def __class_attr_defined_enums=(new_value); end
 
     def add_key_hash_and_byte_size(payloads); end
     def byte_size_for(payload); end
@@ -442,21 +443,23 @@ class SolidCache::Record < ::ActiveRecord::Base
   include ::SolidCache::Record::GeneratedAssociationMethods
 
   class << self
-    # source://activesupport/8.0.0/lib/active_support/class_attribute.rb#12
-    def _validators; end
-
-    # source://activesupport/8.0.0/lib/active_support/class_attribute.rb#15
-    def _validators=(new_value); end
-
-    # source://activesupport/8.0.0/lib/active_support/class_attribute.rb#12
-    def defined_enums; end
-
-    # source://activesupport/8.0.0/lib/active_support/class_attribute.rb#15
-    def defined_enums=(new_value); end
-
     def disable_instrumentation(&block); end
     def each_shard(&block); end
     def with_shard(shard, &block); end
+
+    private
+
+    # source://activesupport/8.0.1/lib/active_support/class_attribute.rb#15
+    def __class_attr__validators; end
+
+    # source://activesupport/8.0.1/lib/active_support/class_attribute.rb#17
+    def __class_attr__validators=(new_value); end
+
+    # source://activesupport/8.0.1/lib/active_support/class_attribute.rb#15
+    def __class_attr_defined_enums; end
+
+    # source://activesupport/8.0.1/lib/active_support/class_attribute.rb#17
+    def __class_attr_defined_enums=(new_value); end
   end
 end
 

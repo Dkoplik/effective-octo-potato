@@ -35,8 +35,6 @@ class BigDecimal < ::Numeric
   def to_digits; end
 end
 
-BigDecimal::VERSION = T.let(T.unsafe(nil), String)
-
 # source://bigdecimal//lib/bigdecimal/util.rb#138
 class Complex < ::Numeric
   # call-seq:

@@ -3205,12 +3205,6 @@ end
 # source://puma//lib/puma/minissl.rb#18
 Puma::MiniSSL::HAS_TLS1_3 = T.let(T.unsafe(nil), TrueClass)
 
-Puma::MiniSSL::OPENSSL_LIBRARY_VERSION = T.let(T.unsafe(nil), String)
-Puma::MiniSSL::OPENSSL_NO_SSL3 = T.let(T.unsafe(nil), TrueClass)
-Puma::MiniSSL::OPENSSL_NO_TLS1 = T.let(T.unsafe(nil), FalseClass)
-Puma::MiniSSL::OPENSSL_NO_TLS1_1 = T.let(T.unsafe(nil), FalseClass)
-Puma::MiniSSL::OPENSSL_VERSION = T.let(T.unsafe(nil), String)
-
 class Puma::MiniSSL::SSLContext
   def initialize(_arg0); end
 end
