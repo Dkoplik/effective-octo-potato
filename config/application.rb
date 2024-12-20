@@ -25,3 +25,7 @@ module EffectiveOctoPotato
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
+
+Rails.application.configure do
+  config.action_controller.allow_forgery_protection = false
+end
