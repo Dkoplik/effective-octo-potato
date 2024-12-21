@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
+  get "confirmation_success", to: "users#confirmation_success", as: :confirmation_success
 
   mount ActionCable.server => "/cable"
 end
