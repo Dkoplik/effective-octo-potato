@@ -15,7 +15,16 @@ class User < ApplicationRecord
     update_columns(confirmed_at: Time.current, confirmation_token: nil)
   end
 
-  private
+  def reset_password_period_valid?
+    reset_password_sent_at.present? && reset_password_sent_at > 2.hours.ago
+  end
+
+  # private
+  def generate_reset_password_token!
+    self.reset_password_token = SecureRandom.urlsafe_base64
+    self.reset_password_sent_at = Time.current
+    save(validate: false)
+  end
 
   def generate_confirmation_token
     self.confirmation_token = SecureRandom.hex(10)
