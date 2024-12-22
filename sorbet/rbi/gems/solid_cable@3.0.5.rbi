@@ -64,64 +64,84 @@ class ActionCable::SubscriptionAdapter::SolidCable::Listener < ::ActionCable::Su
   # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#41
   def initialize(event_loop); end
 
-  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#65
+  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#71
   def add_channel(channel, on_success); end
 
-  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#74
+  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#80
   def invoke_callback(*_arg0); end
 
   # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#52
   def listen; end
 
-  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#70
+  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#76
   def remove_channel(channel); end
 
-  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#60
+  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#62
   def shutdown; end
 
   private
 
-  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#98
+  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#104
   def broadcast_messages; end
 
-  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#94
+  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#100
   def channels; end
+
+  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#148
+  def create_self_pipe; end
 
   # Returns the value of attribute event_loop.
   #
-  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#79
+  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#85
   def event_loop; end
 
-  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#90
+  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#128
+  def interrupt; end
+
+  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#136
+  def interruptible_sleep(time); end
+
+  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#96
   def last_id; end
 
   # Sets the attribute last_id
   #
   # @param value the value to set the attribute last_id to.
   #
-  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#80
+  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#86
   def last_id=(_arg0); end
 
   # Sets the attribute running
   #
   # @param value the value to set the attribute running to.
   #
-  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#80
+  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#86
   def running=(_arg0); end
 
   # @return [Boolean]
   #
-  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#82
+  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#88
   def running?; end
+
+  # Self-pipe for signal-handling (http://cr.yp.to/docs/selfpipe.html)
+  #
+  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#144
+  def self_pipe; end
 
   # Returns the value of attribute thread.
   #
-  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#79
+  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#85
   def thread; end
 
-  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#108
+  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#122
+  def wake_up; end
+
+  # source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#114
   def with_polling_volume; end
 end
+
+# source://solid_cable//lib/action_cable/subscription_adapter/solid_cable.rb#126
+ActionCable::SubscriptionAdapter::SolidCable::Listener::SELF_PIPE_BLOCK_SIZE = T.let(T.unsafe(nil), Integer)
 
 # source://solid_cable//lib/solid_cable/version.rb#3
 module SolidCable

@@ -25,7 +25,12 @@ class Rails::Conductor::BaseController
     include ::ActionText::TagHelper
     include ::Importmap::ImportmapTagsHelper
     include ::ActionController::Base::HelperMethods
+    include ::AccountHelper
     include ::ApplicationHelper
+    include ::PasswordResetsHelper
+    include ::SessionsHelper
+    include ::UsersHelper
+    include ::DeviseHelper
   end
 
   class HelperProxy < ::ActionView::Base
