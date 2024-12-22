@@ -58,4 +58,32 @@ def start
     render json: { error: "Failed to update game", details: game.errors.full_messages }, status: :unprocessable_entity
   end
 end
+
+def update
+  game = Game.find_by(id: params[:id])
+
+  if game.nil?
+    render json: { error: "Game with ID #{params[:id]} not found" }, status: :not_found
+    return
+  end
+
+  if game.ended_at.present?
+    render json: { error: "Game with ID #{params[:id]} is already completed" }, status: :unprocessable_entity
+    return
+  end
+
+  winner_id = params[:winner_id]
+  ended_at = params[:ended_at] || Time.current
+
+  unless [ game.player1_id, game.player2_id ].include?(winner_id.to_i)
+    render json: { error: "Winner ID #{winner_id} is not a participant in this game" }, status: :unprocessable_entity
+    return
+  end
+
+  if game.update(winner_id: winner_id, ended_at: ended_at)
+    render json: { message: "Game updated successfully", game: game }, status: :ok
+  else
+    render json: { error: "Failed to update game", details: game.errors.full_messages }, status: :unprocessable_entity
+  end
+end
 end
