@@ -13,5 +13,9 @@ Rails.application.routes.draw do
   resources :password_resets, only: [ :create, :edit, :update ],  param: :token
   get "password_resets/success", to: "password_resets#success", as: :success_password_reset
   post "delete_account", to: "account#delete_account"
+
+  post "games", to: "games#create"
+  patch "games/:id/start", to: "games#start"
+
   mount ActionCable.server => "/cable"
 end
