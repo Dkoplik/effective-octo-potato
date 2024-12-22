@@ -8,7 +8,6 @@ class GamesController < ApplicationController
       return
     end
 
-
     if player1_id == player2_id
       render json: { error: "Player 1 and Player 2 cannot have the same ID" }, status: :unprocessable_entity
       return
@@ -21,6 +20,15 @@ class GamesController < ApplicationController
 
     unless User.exists?(id: player2_id)
       render json: { error: "Player 2 with ID #{player2_id} does not exist" }, status: :not_found
+      return
+    end
+
+    # Проверка, что игроки не находятся в активной игре
+    active_game_player1 = Game.where(player1_id: player1_id).or(Game.where(player2_id: player1_id)).where(ended_at: nil).exists?
+    active_game_player2 = Game.where(player1_id: player2_id).or(Game.where(player2_id: player2_id)).where(ended_at: nil).exists?
+
+    if active_game_player1 || active_game_player2
+      render json: { error: "One or both players are already in an active game" }, status: :unprocessable_entity
       return
     end
 
