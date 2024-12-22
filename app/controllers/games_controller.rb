@@ -8,6 +8,12 @@ class GamesController < ApplicationController
       return
     end
 
+
+    if player1_id == player2_id
+      render json: { error: "Player 1 and Player 2 cannot have the same ID" }, status: :unprocessable_entity
+      return
+    end
+
     unless User.exists?(id: player1_id)
       render json: { error: "Player 1 with ID #{player1_id} does not exist" }, status: :not_found
       return
@@ -30,7 +36,6 @@ class GamesController < ApplicationController
       render json: { error: "Failed to create game", details: game.errors.full_messages }, status: :unprocessable_entity
     end
   end
-
 
 def start
   game = Game.find_by(id: params[:id])
