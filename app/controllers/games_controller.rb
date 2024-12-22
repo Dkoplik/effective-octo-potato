@@ -86,4 +86,22 @@ def update
     render json: { error: "Failed to update game", details: game.errors.full_messages }, status: :unprocessable_entity
   end
 end
+
+def show
+  game = Game.find(params[:id])
+
+  player1 = User.find(game.player1_id)
+  player2 = User.find(game.player2_id)
+
+  render json: {
+    game_id: game.id,
+    player1: player1.username,
+    player2: player2.username,
+    winner: (game.winner_id ? User.find(game.winner_id).username : nil),
+    started_at: game.started_at,
+    ended_at: game.ended_at
+  }
+rescue ActiveRecord::RecordNotFound
+  render json: { error: "Game not found" }, status: :not_found
+end
 end

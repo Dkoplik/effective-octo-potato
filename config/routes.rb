@@ -5,8 +5,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :games
-
   post "/login", to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   get "confirmation_success", to: "users#confirmation_success", as: :confirmation_success
@@ -16,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :games, only: [ :create, :update ]
   patch "games/:id/start", to: "games#start"
+  get "games/:id", to: "games#show"
 
   mount ActionCable.server => "/cable"
 end
