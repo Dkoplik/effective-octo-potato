@@ -1,9 +1,9 @@
 class LobbyChannel < ApplicationCable::Channel
   def subscribed
-    puts "someone connected"
+    Rails.logger.debug "someone connected - ID: #{self.id}"
   end
 
   def unsubscribed
-    puts "someone disconnected"
+    Rails.logger.debug "someone disconnected"
   end
 end
