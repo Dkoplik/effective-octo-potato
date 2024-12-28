@@ -369,6 +369,8 @@ GEM
     unicode-emoji (4.0.4)
     uri (1.0.2)
     useragent (0.16.11)
+    validates_password_strength (0.3.0)
+      activemodel (>= 3.2.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.1)
@@ -424,6 +426,7 @@ DEPENDENCIES
   thruster
   turbo-rails
   tzinfo-data
+  validates_password_strength
   web-console
 
 BUNDLED WITH
