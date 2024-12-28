@@ -16,5 +16,7 @@ Rails.application.routes.draw do
   patch "games/:id/start", to: "games#start"
   get "games/:id", to: "games#show"
 
+  get "/lobbies", to: "lobbies#list_all"
+
   mount ActionCable.server => "/cable"
 end

@@ -72,4 +72,7 @@ Rails.application.configure do
 
   # Allow all action cable connections
   config.action_cable.disable_request_forgery_protection = true
+
+  # Разрешить все соединения
+  config.hosts.clear
 end
