@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
     if @user.save
       UserMailer.confirmation_email(@user).deliver_now
-      render json: { message: "User created successfully. Please confirm your email.", user: @user }, status: :ok
+      render json: { message: "User created successfully." }, status: :created
     else
       render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
     end

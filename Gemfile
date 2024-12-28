@@ -67,3 +67,13 @@ end
 
 gem "bcrypt", "~> 3.1.16"
 gem "devise"
+
+group :development, :test do
+  gem "rspec-rails", "~> 6.0"
+end
+
+group :test do
+  gem "factory_bot_rails"
+  gem "faker"
+  gem "database_cleaner-active_record", "~> 2.0"
+end
