@@ -69,7 +69,7 @@ gem "bcrypt", "~> 3.1.16"
 gem "devise"
 
 group :development, :test do
-  gem "rspec-rails", "~> 6.0"
+  gem "rspec-rails", "~> 7.1"
 end
 
 group :test do
